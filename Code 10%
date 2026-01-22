@@ -1,0 +1,177 @@
+import url('https://fonts.cdnfonts.com/css/ysabeau-office');
+/* AUTO=sticky_menu */ @media screen and (min-width: 1025px) { .l-top_menu-v2 { position: sticky; top: 0; } .l-top_menu-v2 .active .submenu { max-height: calc(100vh - var(--top-menu-height)); overflow-y: auto; } }
+/* Шрифт для меню */
+body, input, select, button, textarea, .l-page, .b-input input, .b-input textarea {
+   font-family: 'Ysabeau Office', sans-serif;
+    font-weight: 700;
+}
+/* ФОН */
+body {
+    background: fixed url(https://i.imgur.com/7SDVHmr.gif) center / cover no-repeat #000 !important;
+}
+@font-face {
+  font-family: Conthrax;
+  src: url(https://raw.githubusercontent.com/M-a-S-a-Y-a/Club-Style/main/Conthrax.woff2) format("woff2"),
+       url(https://raw.githubusercontent.com/M-a-S-a-Y-a/Club-Style/main/Conthrax.ttf) format("truetype");
+}
+  @font-face {
+  font-family: Nasalization_Rg;
+  src: url(https://raw.githubusercontent.com/M-a-S-a-Y-a/Club-Style/main/nasalization-rg.otf) format("opentype");
+       /* Ссылки на Шрифт Conthrax*/
+}
+/* Скрытие блока с отчетом об ошибке слева */
+.b-feedback {
+visibility: hidden;
+}
+/* Шапка + Стеклянный эффект */
+.l-top_menu,
+.l-top_menu-v2 {
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,20,0.35) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #000;
+}
+/* Подменю шапок Меню + Профиль стеклянные */
+.l-top_menu .submenu,
+.l-top_menu-v2 .submenu {
+    background: rgba(0,0,20,0.35) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none !important;
+}
+/* Стеклянная шапка кнопки Профиль на ПК */
+.l-top_menu .menu-dropdown.profile > span,
+.l-top_menu-v2 .menu-dropdown.profile > span { 
+  background: transparent !important;
+}
+/* Стеклянная шапка кнопки Меню на ПК */
+.l-top_menu .submenu-triangle,
+.l-top_menu-v2 .submenu-triangle {
+  background: transparent !important;
+  color: white !important;
+}
+/* Белый цвет кнопки Форум на ПК */
+.l-top_menu .menu-icon.forum.desktop,
+.l-top_menu-v2 .menu-icon.forum.desktop {
+  color: white !important;
+}
+/* Прозрачный цвет наведения кнопки Форум на ПК */
+  .l-top_menu .menu-icon.forum.desktop,
+.l-top_menu-v2 .menu-icon.forum.desktop:hover {
+  background-color: transparent !important;
+}
+/* Стеклянная шапка Меню на телефоне */
+.l-top_menu .menu-icon.trigger.mobile,
+.l-top_menu-v2 .menu-icon.trigger.mobile {
+    background: transparent !important;
+}
+/* Белый цвет кнопки Поиск на телефоне */
+.l-top_menu .menu-icon.search.mobile,
+.l-top_menu-v2 .menu-icon.search.mobile {
+  color: white !important;
+}
+.l-top_menu .menu-icon.mail,
+.l-top_menu-v2 .menu-icon.mail {
+  color: white !important;
+}
+  .l-top_menu .menu-icon.mail,
+.l-top_menu-v2 .menu-icon.mail:hover {
+  background-color: transparent !important;
+}
+.l-menu .block.user_rates-minified .subheadline {
+    /* 1. Эффект прорезания */
+    /* Мы накладываем полупрозрачный белый цвет (rgba) ПОВЕРХ вашей гифки */
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), /* Белая пелена */
+        url(https://i.imgur.com/7SDVHmr.gif) center / cover no-repeat fixed; /* Та же гифка, что и в body */
+
+    /* 2. Оформление текста */
+    font-family: Nasalization_Rg;
+    color: #fff !important; /* Белый текст */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* Тень тексту, чтобы читался на светлом */
+    text-align: center;
+    font-size: 20px; /* Можно подогнать размер */
+    font-weight: 700;
+    
+    /* 3. Отступы для создания высоты полоски */
+    padding: 1px 0;
+    
+    /* 4. Компенсация отступов родителя (чтобы полоска была во всю ширину) */
+    /* Обычно в таких меню есть padding, эти минусовые отступы растянут полоску */
+    margin-left: -10px; /* Возможно, придется подобрать число под ваш сайт */
+    margin-right: -10px;
+    
+    /* Убираем лишние границы, если есть */
+    border-bottom: none !important;
+}
+/* Главное меню */
+.l-page {
+    background: rgba(0,0,20,0.75);
+    color: #bbbbbb;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+/* Рисунок на l-Page */
+.l-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Помещаем за текст, но внутри стекла */
+
+    /* 1. Наполняем "вырез" фоновым гифкой */
+    background: url(https://i.imgur.com/7SDVHmr.gif) center / cover no-repeat fixed;
+
+    /* 2. Накладываем маску-рисунок */
+    -webkit-mask-image: url(https://i.imgur.com/UWrLiYF.png);
+    mask-image: url(https://i.imgur.com/UWrLiYF.png);
+
+    /* 3. Настройка размера и положения (делаем меньше и выше) */
+    -webkit-mask-size: 400px; 
+    -webkit-mask-position: 60% 15%;
+    -webkit-mask-repeat: no-repeat;
+    
+    mask-size: 400px;/* Регулируйте размер рисунка здесь */
+    mask-position: 60% 15%; /* 60% - по горизонтали, 15% - сверху */
+    mask-repeat: no-repeat;
+
+    /* 4. Убираем размытие для самого рисунка, чтобы линии были четкими */
+    backdrop-filter: none;
+}
+/* Headings */
+h1, h2, h3, h4, header.head h1 {
+    color: #bbbbbb !important;
+}
+
+/* Links */
+.l-page a {
+    color: #5B5B5B !important;
+    text-decoration: none !important;
+}
+.l-page a:hover,
+.l-page a:focus {
+    color: #FF0000;
+    background: #42AAFF;
+}
+/* Подменю Манг,Аниме,Ранобэ + Стеклянный их вид */
+.tooltip-inner {
+    background: transparent !important;
+    color: #bbbbbb;
+}
+/* Добавляем гифку рядом с ником конкретного пользователя */
+.b-comment[data-user_id="1553436"] .name-date a.name::after {
+    content: "";
+    display: inline-block;
+    width: 20px;  /* Ширина гифки */
+    height: 20px; /* Высота гифки */
+    margin-left: 5px; /* Отступ от ника */
+    vertical-align: middle;
+    
+    /* Ссылка на вашу гифку */
+    background: url(https://i.imgur.com/2hP794A.gif) center / contain no-repeat;
+}
+}
