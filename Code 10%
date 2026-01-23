@@ -1,4 +1,4 @@
-import url('https://fonts.cdnfonts.com/css/ysabeau-office');
+@import url('https://fonts.cdnfonts.com/css/ysabeau-office');
 /* AUTO=sticky_menu */ @media screen and (min-width: 1025px) { .l-top_menu-v2 { position: sticky; top: 0; } .l-top_menu-v2 .active .submenu { max-height: calc(100vh - var(--top-menu-height)); overflow-y: auto; } }
 /* Шрифт для меню */
 body, input, select, button, textarea, .l-page, .b-input input, .b-input textarea {
@@ -7,17 +7,21 @@ body, input, select, button, textarea, .l-page, .b-input input, .b-input textare
 }
 /* ФОН */
 body {
-    background: fixed url(https://i.imgur.com/7SDVHmr.gif) center / cover no-repeat #000 !important;
+    background: fixed url(https://i.imgur.com/FRlg3UN.gif) center / cover no-repeat #000 !important;
+}
+body, input, select, button, textarea, .l-page, .b-input input, .b-input textarea {
+   font-family: Conthrax, sans-serif;
 }
 @font-face {
   font-family: Conthrax;
   src: url(https://raw.githubusercontent.com/M-a-S-a-Y-a/Club-Style/main/Conthrax.woff2) format("woff2"),
        url(https://raw.githubusercontent.com/M-a-S-a-Y-a/Club-Style/main/Conthrax.ttf) format("truetype");
+  /* Ссылки на Шрифт Conthrax*/
 }
   @font-face {
   font-family: Nasalization_Rg;
   src: url(https://raw.githubusercontent.com/M-a-S-a-Y-a/Club-Style/main/nasalization-rg.otf) format("opentype");
-       /* Ссылки на Шрифт Conthrax*/
+       /* Ссылки на Шрифт Nasalization*/
 }
 /* Скрытие блока с отчетом об ошибке слева */
 .b-feedback {
@@ -28,7 +32,7 @@ visibility: hidden;
 .l-top_menu-v2 {
     position: sticky;
     top: 0;
-    background: rgba(0,0,20,0.35) !important;
+    background: rgba(0,0,0,0.35) !important;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     color: #000;
@@ -36,7 +40,7 @@ visibility: hidden;
 /* Подменю шапок Меню + Профиль стеклянные */
 .l-top_menu .submenu,
 .l-top_menu-v2 .submenu {
-    background: rgba(0,0,20,0.35) !important;
+    background: rgba(0,0,0,0.35) !important;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border: none !important;
@@ -80,35 +84,77 @@ visibility: hidden;
 .l-top_menu-v2 .menu-icon.mail:hover {
   background-color: transparent !important;
 }
-.l-menu .block.user_rates-minified .subheadline {
-    /* 1. Эффект прорезания */
-    /* Мы накладываем полупрозрачный белый цвет (rgba) ПОВЕРХ вашей гифки */
-    background: 
-        linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), /* Белая пелена */
-        url(https://i.imgur.com/7SDVHmr.gif) center / cover no-repeat fixed; /* Та же гифка, что и в body */
-
-    /* 2. Оформление текста */
+/* Надписи Аниме,Манга,Ранобэ с эффектом размытия */
+.l-menu .block.user_rates-minified .subheadline,
+.l-menu .block.m0 .subheadline {
+    /* КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: убираем фон здесь, чтобы не было серой пелены */
+    background: transparent !important; 
+    backdrop-filter: blur(10px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(180%) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    
+    
+    /* Текст */
     font-family: Nasalization_Rg;
-    color: #fff !important; /* Белый текст */
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* Тень тексту, чтобы читался на светлом */
+    filter: blur(0.7px);
+    color: #fff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0,0,0,0.4); 
     text-align: center;
-    font-size: 20px; /* Можно подогнать размер */
+    font-size: 14px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     
-    /* 3. Отступы для создания высоты полоски */
-    padding: 1px 0;
-    
-    /* 4. Компенсация отступов родителя (чтобы полоска была во всю ширину) */
-    /* Обычно в таких меню есть padding, эти минусовые отступы растянут полоску */
-    margin-left: -10px; /* Возможно, придется подобрать число под ваш сайт */
-    margin-right: -10px;
-    
-    /* Убираем лишние границы, если есть */
-    border-bottom: none !important;
+    /* Положение */
+    padding: 5px 15px 5px 40px;
+    margin-left: 20%;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Эффект выреза (гифка) */
+.l-menu .block.user_rates-minified .subheadline::before,
+.l-menu .block.m0 .subheadline::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    /* Здесь мы задаем полупрозрачный белый слой ПОВЕРХ гифки, как было в самом начале */
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), 
+        url(https://i.imgur.com/FRlg3UN.gif) center / cover no-repeat fixed !important;
+    opacity: 0.8 !important; /* Ставим полную видимость слоя */
+}
+/* Полный сброс эффектов наведения (синего фона и прозрачности) */
+.l-menu .block.user_rates-minified .subheadline a,
+.l-menu .block.user_rates-minified .subheadline a:hover,
+.l-menu .block.user_rates-minified .subheadline a:focus,
+.l-menu .block.user_rates-minified .subheadline a:active {
+    background: transparent !important; /* Убирает синий/серый фон */
+    color: #fff !important;           /* Всегда белый текст */
+    text-decoration: none !important; /* Никаких подчеркиваний */
+    outline: none !important;         /* Убирает рамку фокуса */
+    box-shadow: none !important;      /* Убирает возможные свечения */
+}
+/* 1. Удаляем стрелку ТОЛЬКО у ссылки (не трогаем основной фон) */
+.l-menu .block.user_rates-minified .subheadline a::before,
+.l-menu .block.user_rates-minified .subheadline a::after {
+    display: none !important;
+    content: none !important;
+}
+/* 2. Гарантируем, что фон в блоке будет виден */
+.l-menu .block.user_rates-minified .subheadline::before,
+.l-menu .block.m0 .subheadline::before {
+    display: block !important;
+}
+/* 3. Убираем лишнее место справа, которое занимала стрелка */
+.l-menu .block.user_rates-minified .subheadline a {
+    padding-right: 0 !important; 
 }
 /* Главное меню */
 .l-page {
-    background: rgba(0,0,20,0.75);
+    background: rgba(0,0,0,0.55);
     color: #bbbbbb;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -124,7 +170,7 @@ visibility: hidden;
     z-index: -1; /* Помещаем за текст, но внутри стекла */
 
     /* 1. Наполняем "вырез" фоновым гифкой */
-    background: url(https://i.imgur.com/7SDVHmr.gif) center / cover no-repeat fixed;
+    background: url(https://i.imgur.com/FRlg3UN.gif) center / cover no-repeat fixed;
 
     /* 2. Накладываем маску-рисунок */
     -webkit-mask-image: url(https://i.imgur.com/UWrLiYF.png);
@@ -144,6 +190,7 @@ visibility: hidden;
 }
 /* Headings */
 h1, h2, h3, h4, header.head h1 {
+    font-family: Conthrax, sans-serif;
     color: #bbbbbb !important;
 }
 
@@ -171,7 +218,6 @@ h1, h2, h3, h4, header.head h1 {
     margin-left: 5px; /* Отступ от ника */
     vertical-align: middle;
     
-    /* Ссылка на вашу гифку */
-    background: url(https://i.imgur.com/2hP794A.gif) center / contain no-repeat;
-}
+    /* Ссылка на гифку рядом с ником */
+    background: url(https://i.imgur.com/THwO4WI.gif) center / contain no-repeat;
 }
