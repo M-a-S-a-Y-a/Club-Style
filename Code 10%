@@ -9,6 +9,16 @@ body, input, select, button, textarea, .l-page, .b-input input, .b-input textare
 body {
     background: fixed url(https://i.imgur.com/FRlg3UN.gif) center / cover no-repeat #000 !important;
 }
+/* === Глобальный шум-оверлей (вставлять в самый конец CSS) === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  backdrop-filter: blur(0.3px);
+  -webkit-backdrop-filter: blur(0.3px);
+}
 body, input, select, button, textarea, .l-page, .b-input input, .b-input textarea {
    font-family: Conthrax, sans-serif;
 }
@@ -94,8 +104,6 @@ visibility: hidden;
     border: none !important;
     position: relative;
     overflow: hidden;
-    
-    
     /* Текст */
     font-family: Nasalization_Rg;
     filter: blur(0.7px);
@@ -106,13 +114,11 @@ visibility: hidden;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    
     /* Положение */
     padding: 5px 15px 5px 40px;
     margin-left: 20%;
     border-radius: 4px 0 0 4px;
 }
-
 /* Эффект выреза (гифка) */
 .l-menu .block.user_rates-minified .subheadline::before,
 .l-menu .block.m0 .subheadline::before {
@@ -168,32 +174,21 @@ visibility: hidden;
     right: 0;
     bottom: 0;
     z-index: -1; /* Помещаем за текст, но внутри стекла */
-
     /* 1. Наполняем "вырез" фоновым гифкой */
     background: url(https://i.imgur.com/FRlg3UN.gif) center / cover no-repeat fixed;
-
     /* 2. Накладываем маску-рисунок */
     -webkit-mask-image: url(https://i.imgur.com/UWrLiYF.png);
     mask-image: url(https://i.imgur.com/UWrLiYF.png);
-
     /* 3. Настройка размера и положения (делаем меньше и выше) */
-    -webkit-mask-size: 400px; 
+    -webkit-mask-size: 400px;
     -webkit-mask-position: 60% 15%;
     -webkit-mask-repeat: no-repeat;
-    
     mask-size: 400px;/* Регулируйте размер рисунка здесь */
     mask-position: 60% 15%; /* 60% - по горизонтали, 15% - сверху */
     mask-repeat: no-repeat;
-
     /* 4. Убираем размытие для самого рисунка, чтобы линии были четкими */
     backdrop-filter: none;
 }
-/* Headings */
-h1, h2, h3, h4, header.head h1 {
-    font-family: Conthrax, sans-serif;
-    color: #bbbbbb !important;
-}
-
 /* Links */
 .l-page a {
     color: #5B5B5B !important;
@@ -209,6 +204,11 @@ h1, h2, h3, h4, header.head h1 {
     background: transparent !important;
     color: #bbbbbb;
 }
+/* Headings */
+h1, h2, h3, h4, header.head h1 {
+    font-family: Conthrax, sans-serif;
+    color: #bbbbbb !important;
+}
 /* Добавляем гифку рядом с ником конкретного пользователя */
 .b-comment[data-user_id="1553436"] .name-date a.name::after {
     content: "";
@@ -217,7 +217,6 @@ h1, h2, h3, h4, header.head h1 {
     height: 20px; /* Высота гифки */
     margin-left: 5px; /* Отступ от ника */
     vertical-align: middle;
-    
     /* Ссылка на гифку рядом с ником */
     background: url(https://i.imgur.com/THwO4WI.gif) center / contain no-repeat;
 }
