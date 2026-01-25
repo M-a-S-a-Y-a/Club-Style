@@ -94,6 +94,14 @@ visibility: hidden;
 .l-top_menu-v2 .menu-icon.mail:hover {
   background-color: transparent !important;
 }
+.l-top_menu .menu-icon.contest,
+.l-top_menu-v2 .menu-icon.contest {
+  color: white !important;
+}
+.l-top_menu .menu-icon.contest,
+.l-top_menu-v2 .menu-icon.contest:hover {
+  background-color: transparent !important;
+}
 /* Надписи Аниме,Манга,Ранобэ Aqua стиль */
 .l-menu .block.user_rates-minified .subheadline,
 .l-menu .block.m0 .subheadline {
